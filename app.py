@@ -247,7 +247,14 @@ class Biblioteca:
 
         libro.prestado = False
         libro.usuario = None
-        print(f"\nLibro '{libro.titulo}'.")
+        print(f"\nLibro '{libro.titulo}'.")        
+
+    def buscar_libro_titulo(self, titulo):
+        for libro in self.libros.listar_libros():
+            if libro.titulo.lower() == titulo.lower():
+                print(libro)
+                return
+        print("Libro no encontrado")        
 
 
 # Menu principal
