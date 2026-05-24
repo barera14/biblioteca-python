@@ -241,7 +241,17 @@ class Biblioteca:
         libro.prestado = False
         libro.usuario = None
         print(f"\nLibro '{libro.titulo}'.")
+        
+    def eliminar_libro(self, id):
+        libros = self.libros.listar_libros()
+        nueva_lista = [l for l in libros if l.id != id]
 
+        self.libros = Arbol()
+
+        for libro in nueva_lista:
+            self.libros.insertar(libro)
+
+        print("Libro eliminado")
 
 # Menu principal
 
